@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+h1,
+h3,
+h4,
+h5 {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+h2 {
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 35px;
+  line-height: 1.1;
+}
+
+p {
+  font-size: 20px;
+}
+
+.container-w {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+@media (min-width: 200px) and (max-width: 768px) {
+  h1 {
+    font-size: 23px;
+  }
+  .small-text {
+    font-size: 12px;
+  }
+  p {
+    font-size: 15px;
+  }
+  a {
+    font-size: 15px;
+  }
+}
