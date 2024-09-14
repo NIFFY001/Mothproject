@@ -1,45 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
 import SliderHero from "../../components/SliderHero";
 import ProgressBar from "../../components/ProgressBar";
-import Select from "react-select";
-import Flag from "react-world-flags";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Added Link and useNavigate from react-router-dom
+import Select from "react-select"; // Import react-select for the country dropdown
+import Flag from "react-world-flags"; // Assuming you have a flag component for country flags
 
+// Example country data, replace this with actual data if necessary
 const countries = [
-  { value: "nigeria", label: "Nigeria", flag: "NG" },
-  { value: "usa", label: "United States", flag: "US" },
-  { value: "canada", label: "Canada", flag: "CA" },
-  // Add more countries as needed
+  { label: "Nigeria", value: "+234", flag: "NG" },
+  { label: "United States", value: "+1", flag: "US" },
 ];
 
-const customSingleValue = ({ data }) => (
-  <div className="flex items-center">
-    <Flag
-      code={data.flag}
-      alt={data.label}
-      style={{ width: 20, height: 15, marginRight: 10 }}
-    />
-    <span>{data.label}</span>
-  </div>
-);
-
 export default function Signup() {
-  const [progress, setProgress] = useState(0);
+  const navigate = useNavigate();
 
   const handleNext = () => {
-    if (progress < 100) {
-      setProgress((prev) => Math.min(prev + 25, 100)); // Increase progress by 25%, max 100%
-    }
+    // After completing this form, navigate to the OTP page
+    navigate("/otp");
   };
+
+  // Custom rendering for country options with flag
+  const customSingleValue = ({ data }) => (
+    <div className="flex items-center">
+      <Flag
+        code={data.flag}
+        alt={data.label}
+        style={{ width: 20, height: 20, marginRight: 10 }}
+      />
+      <span>{data.label}</span>
+    </div>
+  );
 
   return (
     <>
-      <div className="flex flex-col md:flex-row ">
+      <div className="flex flex-col md:flex-row">
         <div className="md:w-[50%]">
           <SliderHero />
         </div>
         <div className="md:w-[50%] bg-white">
-          <div className="flex items-center justify-center mt-28 md:mt-28">
+          <div className="flex items-center justify-center">
             <div className="flex flex-col w-full p-5 md:p-20">
               <div>
                 <h1 className="text-black mb-5">Sign up</h1>
@@ -48,9 +47,11 @@ export default function Signup() {
                 </p>
               </div>
 
-              <ProgressBar progress={progress} />
+              {/* Progress Bar */}
+              <ProgressBar step={1} />
 
-              <form action="" className="w-full mt-10">
+              {/* Form Content */}
+              <form className="w-full mt-10">
                 <div className="mb-5">
                   <p className="mb-2">First Name</p>
                   <input
@@ -67,9 +68,8 @@ export default function Signup() {
                     className="bg-transparent w-full text-[16px] font-medium p-3 border-[1px] border-[#CCCCCC] rounded-xl"
                   />
                 </div>
-
                 <div className="mb-5">
-                  <p className="mb-2">Last Name </p>
+                  <p className="mb-2">Last Name</p>
                   <input
                     placeholder="Enter last name"
                     type="text"
@@ -77,7 +77,7 @@ export default function Signup() {
                   />
                 </div>
 
-                {/* Country Selector */}
+                {/* Country Selector and Phone Number */}
                 <p className="mb-2">Phone Number</p>
                 <div className="mb-5 flex items-center border-[1px] border-[#CCCCCC] p-3 rounded-xl w-full">
                   <div className="flex items-center w-1/2 pr-2">
@@ -97,7 +97,6 @@ export default function Signup() {
                       className="bg-transparent w-full text-[16px] font-medium"
                     />
                   </div>
-
                   <div className="flex items-center w-1/2 pl-2">
                     <input
                       placeholder="Enter phone number"
@@ -116,10 +115,11 @@ export default function Signup() {
                   />
                 </div>
 
+                {/* Password Requirements */}
                 <div className="">
                   <p className="text-black">At least:</p>
                   <div className="mt-5 flex flex-row gap-2 md:gap-4 w-full text-center">
-                    <div className=" rounded-full bg-[#EEDDFC] p-1 md:p-3 ">
+                    <div className="rounded-full bg-[#EEDDFC] p-1 md:p-3 ">
                       <p className="text-[10px] "> 8 characters</p>
                     </div>
                     <div className="rounded-full bg-[#EEDDFC] p-1 md:p-3">
@@ -133,11 +133,12 @@ export default function Signup() {
                     <div className="rounded-full bg-[#EEDDFC] p-1 md:p-3">
                       <p className="text-[10px]"> A special character </p>
                     </div>
-                    <div className="rounded-full bg-[#EEDDFC] p-1  md:p-3">
+                    <div className="rounded-full bg-[#EEDDFC] p-1 md:p-3">
                       <p className="text-[10px]"> A number </p>
                     </div>
                   </div>
 
+                  {/* Agreement Checkbox */}
                   <div className="mt-10 flex flex-row items-start md:items-center gap-2">
                     <input
                       className="h-4 w-4 rounded-full"
@@ -152,13 +153,16 @@ export default function Signup() {
                     </p>
                   </div>
 
+                  {/* Next Button */}
                   <button
                     type="button"
-                    onClick={handleNext}
                     className="bg-black text-white font-medium py-3 px-4 shadow-md w-full rounded-xl mt-5"
+                    onClick={handleNext}
                   >
                     Next
                   </button>
+
+                  {/* Login Prompt */}
                   <p className="text-black mt-10 text-center text-sm">
                     Already have an account?{" "}
                     <span className="text-[#005BFE]">

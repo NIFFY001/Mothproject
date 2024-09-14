@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import onboarding1 from "../assets/onboarding1.png";
 import oneboarding2 from "../assets/oneboarding2.png";
 import onboarding3 from "../assets/onboarding3.png";
+import mothlogo from "../assets/mothlogo.png";
 
 function SliderHero() {
   const settings = {
@@ -21,6 +22,9 @@ function SliderHero() {
     <div className="container-slide bg-black md:h-[1500px] h-screen">
       <Slider {...settings}>
         <div className="flex flex-col justify-center items-center h-screen relative outline-none bg-black ">
+          <div className="flex justify-start py-5 px-2 ">
+            <img src={mothlogo}></img>
+          </div>
           <div className="flex flex-col justify-center items-center">
             <img
               src={onboarding1}
@@ -35,6 +39,9 @@ function SliderHero() {
         </div>
 
         <div className="relative outline-none">
+          <div className="flex justify-start py-5 px-2 ">
+            <img src={mothlogo}></img>
+          </div>
           <img
             src={oneboarding2}
             alt="Slide 2"
@@ -42,6 +49,9 @@ function SliderHero() {
           />
         </div>
         <div className="relative outline-none">
+          <div className="flex justify-start py-5 px-2 ">
+            <img src={mothlogo}></img>
+          </div>
           <img
             src={onboarding3}
             alt="Slide 3"
