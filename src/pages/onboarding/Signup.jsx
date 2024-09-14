@@ -41,7 +41,7 @@ export default function Signup() {
           <div className="flex items-center justify-center">
             <div className="flex flex-col w-full p-5 md:p-20">
               <div>
-                <h1 className="text-black mb-5">Sign up</h1>
+                <h1 className="text-black mb-5 ">Sign up</h1>
                 <p className="text-black">
                   Let's get started, please enter your details
                 </p>
@@ -53,7 +53,7 @@ export default function Signup() {
               {/* Form Content */}
               <form className="w-full mt-10">
                 <div className="mb-5">
-                  <p className="mb-2">First Name</p>
+                  <p className="mb-2 text-sm">First Name</p>
                   <input
                     placeholder="Enter first name"
                     type="text"
@@ -61,7 +61,7 @@ export default function Signup() {
                   />
                 </div>
                 <div className="mb-5">
-                  <p className="mb-2">Middle Name (Optional)</p>
+                  <p className="mb-2 text-sm">Middle Name (Optional)</p>
                   <input
                     placeholder="Enter middle name"
                     type="text"
@@ -69,7 +69,7 @@ export default function Signup() {
                   />
                 </div>
                 <div className="mb-5">
-                  <p className="mb-2">Last Name</p>
+                  <p className="mb-2 text-sm">Last Name</p>
                   <input
                     placeholder="Enter last name"
                     type="text"
@@ -78,7 +78,7 @@ export default function Signup() {
                 </div>
 
                 {/* Country Selector and Phone Number */}
-                <p className="mb-2">Phone Number</p>
+                <p className="mb-2 text-sm">Phone Number</p>
                 <div className="mb-5 flex items-center border-[1px] border-[#CCCCCC] p-3 rounded-xl w-full">
                   <div className="flex items-center w-1/2 pr-2">
                     <Select
@@ -107,7 +107,7 @@ export default function Signup() {
                 </div>
 
                 <div className="mb-5">
-                  <p className="mb-2">Password </p>
+                  <p className="mb-2 text-sm">Password </p>
                   <input
                     placeholder="Enter Password"
                     type="password"
@@ -117,7 +117,7 @@ export default function Signup() {
 
                 {/* Password Requirements */}
                 <div className="">
-                  <p className="text-black">At least:</p>
+                  <p className="text-black text-sm">At least:</p>
                   <div className="mt-5 flex flex-row gap-2 md:gap-4 w-full text-center">
                     <div className="rounded-full bg-[#EEDDFC] p-1 md:p-3 ">
                       <p className="text-[10px] "> 8 characters</p>

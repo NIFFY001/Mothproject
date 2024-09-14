@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import SliderHero from "../../components/SliderHero";
 import ProgressBar from "../../components/ProgressBar";
+import { Link } from "react-router-dom";
 
 export default function Otp() {
   const inputRefs = useRef([]);
@@ -56,12 +57,14 @@ export default function Otp() {
           </div>
 
           <div className="mb-5">
-            <button
-              type="submit"
-              className="bg-black text-white font-medium py-3 px-4 shadow-md w-full rounded-xl"
-            >
-              Verify Account
-            </button>
+            <Link to="/acctsetup">
+              <button
+                type="submit"
+                className="bg-black text-white font-medium py-3 px-4 shadow-md w-full rounded-xl"
+              >
+                Verify Account
+              </button>
+            </Link>
           </div>
 
           <div>

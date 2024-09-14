@@ -8,7 +8,6 @@ import mothlogo from "../assets/mothlogo.png";
 
 function SliderHero() {
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -19,7 +18,7 @@ function SliderHero() {
   };
 
   return (
-    <div className="container-slide bg-black md:h-[1500px] h-screen">
+    <div className="container-slide bg-black md:h-[2000px] h-auto overflow-hidden">
       <Slider {...settings}>
         <div className="flex flex-col justify-center items-center h-screen relative outline-none bg-black ">
           <div className="flex justify-start py-5 px-2 ">
@@ -29,7 +28,7 @@ function SliderHero() {
             <img
               src={onboarding1}
               alt="Slide 1"
-              className="w-[50%] h-[400px] md:h-screen m-5 object-cover"
+              className="w-[100%] m-5 object-cover"
               autoPlay
               muted
               loop
@@ -45,7 +44,7 @@ function SliderHero() {
           <img
             src={oneboarding2}
             alt="Slide 2"
-            className="w-[100%] h-[400px] md:h-screen object-cover"
+            className="w-[100%]  object-cover"
           />
         </div>
         <div className="relative outline-none">
@@ -55,7 +54,7 @@ function SliderHero() {
           <img
             src={onboarding3}
             alt="Slide 3"
-            className="w-[100%] h-[400px] md:h-screen  object-cover"
+            className="w-[100%]  object-cover"
           />
         </div>
       </Slider>

@@ -13,7 +13,7 @@ export default function Login() {
         <div className="md:w-[50%] bg-white">
           <div className="">
             <p className="">
-              <div className="bg-white flex items-center justify-center mt-28 md:mt-28">
+              <div className="bg-white flex items-center justify-center md:mt-28">
                 <div className="flex flex-col w-full p-5 md:p-20">
                   <div className="">
                     <h1 className="text-black mb-5">Login</h1>
