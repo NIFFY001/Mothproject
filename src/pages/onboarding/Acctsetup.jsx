@@ -20,8 +20,8 @@ export default function Acctsetup() {
   };
 
   const handleForward = () => {
-    // After completing this form, navigate to the OTP page
-    navigate("");
+    // After completing this form, navigate to the Dashboard page
+    navigate("/dashboard");
   };
 
   // Custom rendering for country options with flag

@@ -42,7 +42,7 @@ export default function Login() {
 
                     <p className="text-[#007AFF] mb-10">Forgot Password?</p>
 
-                    <Link to="/">
+                    <Link to="/dashboard">
                       <button
                         type="submit"
                         className="bg-black text-white font-medium py-3 px-4  shadow-md w-full rounded-xl"
