@@ -32,7 +32,7 @@ const LeftSideTab = ({ tabs }) => {
   return (
     <div className="flex flex-col md:flex-row h-screen">
       {/* Navbar - Left Side */}
-      <div className="w-full md:w-[20%]  bg-black text-white relative">
+      <div className="w-full md:w-[20%] bg-black text-white relative">
         {/* Logo for all screen sizes */}
         <Link to="">
           <div className="hidden md:flex px-4 py-6 items-center">
@@ -83,7 +83,7 @@ const LeftSideTab = ({ tabs }) => {
       </div>
 
       {/* Middle Section */}
-      <div className="w-full md:w-[55%] p-8 overflow-auto h-screen">
+      <div className="w-full md:w-[55%] md:p-8 p-2 overflow-auto h-screen">
         {tabs.map(
           (tab) =>
             activeTab === tab.name && <div key={tab.name}>{tab.content}</div>

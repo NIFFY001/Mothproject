@@ -53,3 +53,20 @@ p {
     font-size: 15px;
   }
 }
+
+.bg-custom-light-blue {
+  background-color: #c1e8eb;
+}
+
+.bg-custom-cream {
+  background-color: #f2f0e0;
+  color: white;
+}
+
+.bg-custom-lavender {
+  background-color: #eeddfc;
+}
+
+.bg-custom-white {
+  background-color: #ffffff;
+}

@@ -8,6 +8,11 @@ import profile from "/src/assets/profile.png";
 import logout from "/src/assets/logout.png";
 import homebg from "/src/assets/homebg.png";
 import BalanceDisplay from "../components/BalanceDisplay";
+import send from "/src/assets/send.png";
+import request from "/src/assets/request.png";
+import withdraw from "/src/assets/withdraw.png";
+import swap from "/src/assets/swap.png";
+import Button from "../components/Button";
 
 export default function Dashboard() {
   return (
@@ -34,17 +39,52 @@ const tabs = [
       </Link>
     ),
     content: (
-      <div className="flex flex-col gap-5 p-2 md:p-2">
+      <div className="flex flex-col md:gap-5 gap-5 md:p-2 mt-5">
         <h1 className="text-[25px] font-semibold">Welcome back, Matt 👋</h1>
 
         <div className="relative md:pt-3 ">
           <img
             src={homebg}
-            className="md:h-[300px] h-[200px] md:w-screen"
+            className="md:h-[300px] h-[200px] md:w-screen "
             alt="Background"
           />
-          <div className="absolute inset-0  pt-5">
+          <div className="absolute inset-0 pt-5">
             <BalanceDisplay />
+          </div>
+        </div>
+
+        <div className="">
+          <h1 className="mb-5">Quick Actions</h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-5 md:gap-10   ">
+            <Button
+              imageSrc={send}
+              link=""
+              text="Send"
+              subtext="Transfer From your wallet to another bank account"
+              bgclass="bg-custom-light-blue"
+            />
+
+            <Button
+              imageSrc={request}
+              link=""
+              text="Receive"
+              subtext="Transfer From your wallet to another bank account"
+              bgclass="bg-custom-cream"
+            />
+            <Button
+              imageSrc={swap}
+              link=""
+              text="Swap"
+              subtext="Transfer From your wallet to another bank account"
+              bgclass="bg-custom-lavender"
+            />
+            <Button
+              imageSrc={withdraw}
+              link=""
+              text="Withdraw"
+              subtext="Transfer From your wallet to another bank account"
+              bgclass="bg-custom-white"
+            />
           </div>
         </div>
       </div>
