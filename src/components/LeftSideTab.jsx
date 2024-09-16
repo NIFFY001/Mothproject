@@ -61,7 +61,7 @@ const LeftSideTab = ({ tabs }) => {
               <button
                 className={`py-4 px-6 text-left transition-colors ${
                   activeTab === tab.name
-                    ? "bg-slate-500 rounded-xl w-[150px]  shadow font-bold"
+                    ? "bg-slate-500 rounded-xl w-[150px] shadow font-bold"
                     : ""
                 }`}
                 onClick={() => handleTabClick(tab.name)}

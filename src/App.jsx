@@ -5,6 +5,7 @@ import Signup from "./pages/onboarding/Signup";
 import Otp from "./pages/onboarding/Otp";
 import Acctsetup from "./pages/onboarding/Acctsetup";
 import Dashboard from "./pages/Dashboard";
+import History from "./components/History";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="otp" element={<Otp />} />
         <Route path="acctsetup" element={<Acctsetup />} />
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="history" element={<History />} />
       </Routes>
     </Router>
   );

@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import LeftSideTab from "../components/LeftSideTab";
 import home from "/src/assets/home.png";
 import card from "/src/assets/card.png";
@@ -13,8 +13,17 @@ import request from "/src/assets/request.png";
 import withdraw from "/src/assets/withdraw.png";
 import swap from "/src/assets/swap.png";
 import Button from "../components/Button";
+import TransactionItem from "../components/TransactionItem";
+import debit from "/src/assets/debit.png"; // Add this missing import
+import credit from "/src/assets/credit.png"; // Add this missing import
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+
+  const handleLoadMoreClick = () => {
+    navigate("/history"); // Navigation to history page
+  };
+
   return (
     <>
       <LeftSideTab tabs={tabs} />
@@ -23,11 +32,18 @@ export default function Dashboard() {
 }
 
 const Navbar = () => {
-  const [isActive, setIsActive] = useState(false);
-};
+  const [isActive, setIsActive] = useState(false); // Correct the useState hook initialization
 
-const handleClick = () => {
-  setIsActive(!isActive);
+  const handleClick = () => {
+    setIsActive(!isActive); // Toggle isActive state properly
+  };
+
+  return (
+    <nav>
+      {/* Add necessary JSX for the Navbar */}
+      <button onClick={handleClick}>{isActive ? "Active" : "Inactive"}</button>
+    </nav>
+  );
 };
 
 const tabs = [
@@ -42,10 +58,10 @@ const tabs = [
       <div className="flex flex-col md:gap-5 gap-5 md:p-2 mt-5">
         <h1 className="text-[25px] font-semibold">Welcome back, Matt 👋</h1>
 
-        <div className="relative md:pt-3 ">
+        <div className="relative md:pt-3">
           <img
             src={homebg}
-            className="md:h-[300px] h-[200px] md:w-screen "
+            className="md:h-[300px] h-[200px] md:w-screen"
             alt="Background"
           />
           <div className="absolute inset-0 pt-5">
@@ -53,9 +69,9 @@ const tabs = [
           </div>
         </div>
 
-        <div className="">
+        <div>
           <h1 className="mb-5">Quick Actions</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-5 md:gap-10   ">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-5 md:gap-10">
             <Button
               imageSrc={send}
               link=""
@@ -63,7 +79,6 @@ const tabs = [
               subtext="Transfer From your wallet to another bank account"
               bgclass="bg-custom-light-blue"
             />
-
             <Button
               imageSrc={request}
               link=""
@@ -84,6 +99,69 @@ const tabs = [
               text="Withdraw"
               subtext="Transfer From your wallet to another bank account"
               bgclass="bg-custom-white"
+            />
+          </div>
+        </div>
+
+        <div className="mt-[50px] bg-white">
+          <div className="  p-1 rounded-xl">
+            <div className="flex justify-between">
+              <h1 className="text-[#6C6C70] text-sm mb-5">
+                Recents Transactions
+              </h1>
+              <Link to="">
+                <h1 className="text-[#6C6C70] text-sm mb-5">View all</h1>
+              </Link>
+            </div>
+
+            <TransactionItem
+              imgSrc={debit}
+              name="Cash Transfer"
+              time="July 06 at 8:00pm"
+              amount="-9.99"
+              amountColor="text-[#ED4141]"
+            />
+            <TransactionItem
+              imgSrc={credit}
+              name="Wallet Topup"
+              time="July 06 at 8:00pm"
+              amount="+9.99"
+              amountColor="text-[#40BE3E]"
+            />
+            <TransactionItem
+              imgSrc={credit}
+              name="Wallet Topup"
+              time="July 06 at 8:00pm"
+              amount="+9.99"
+              amountColor="text-[#40BE3E]"
+            />
+            <TransactionItem
+              imgSrc={debit}
+              name="Cash Transfer"
+              time="July 06 at 8:00pm"
+              amount="-9.99"
+              amountColor="text-[#ED4141]"
+            />
+            <TransactionItem
+              imgSrc={credit}
+              name="Wallet Topup"
+              time="July 06 at 8:00pm"
+              amount="+9.99"
+              amountColor="text-[#40BE3E]"
+            />
+            <TransactionItem
+              imgSrc={debit}
+              name="Cash Transfer"
+              time="July 06 at 8:00pm"
+              amount="-9.99"
+              amountColor="text-[#ED4141]"
+            />
+            <TransactionItem
+              imgSrc={credit}
+              name="Wallet Topup"
+              time="July 06 at 8:00pm"
+              amount="+9.99"
+              amountColor="text-[#40BE3E]"
             />
           </div>
         </div>
@@ -143,10 +221,11 @@ const tabs = [
       </div>
     ),
   },
+
   {
     name: (
       <div className="flex items-center gap-2 ">
-        <img src={profile} alt="Home Logo" className="w-6 h-6" />
+        <img src={profile} alt="Profile Logo" className="w-6 h-6" />
         <span className="text-xl font-semibold">Profile</span>
       </div>
     ),
@@ -168,55 +247,19 @@ const tabs = [
             that the allegations are supported by concrete information.
           </li>
           <li>
-            <strong>Maintain Confidentiality:</strong> To protect the integrity
-            of the investigation and avoid undue harm, the whistleblower must
-            keep the details of the report confidential.
-          </li>
-          <li>
-            <strong>Follow Reporting Channels:</strong> The whistleblower should
-            use the appropriate and designated reporting channel.
-          </li>
-          <li>
-            <strong>Cooperate With Investigations:</strong> The whistleblower
-            has a duty to cooperate with any follow-up investigations, providing
-            additional information or clarification if needed.
-          </li>
-          <li>
-            <strong>Avoid Retaliatory Actions:</strong> The whistleblower should
-            not use their report as a tool for retaliation against colleagues or
-            management but as a genuine effort to address misconduct.
+            <strong>Maintain Confidentiality:</strong> The whistleblower should
+            not disclose the information to unauthorized parties, ensuring that
+            the investigation process remains secure.
           </li>
         </ul>
       </div>
     ),
   },
-
   {
     name: (
-      <div className="flex items-center gap-2">
-        <img src={logout} alt="logout Logo" className="w-6 h-6" />
+      <div className="flex items-center gap-2 ">
+        <img src={logout} alt="Logout Logo" className="w-6 h-6" />
         <span className="text-xl font-semibold">Logout</span>
-      </div>
-    ),
-    content: (
-      <div className="flex flex-col gap-5">
-        <h1 className="md:text-[25px] font-semibold">Reportable Activities</h1>
-        <ul className="list-disc leading-10">
-          <li>Fraud Or Financial Mismanagement</li>
-          <li>Insider Trading Or Market Manipulation</li>
-          <li>Bribery And Corruption</li>
-          <li>Money Laundering Or Tax Evasion</li>
-          <li>Violations Of Company Policies Or Regulatory Requirements</li>
-          <li>Theft Or Embezzlement Of Company Funds</li>
-          <li>Unethical Business Practices</li>
-          <li>Harassment Or Discrimination In The Workplace</li>
-          <li>Breach Of Data Privacy Or Cybersecurity Policies</li>
-          <li>Health And Safety Violations</li>
-        </ul>
-        <p>
-          These activities, if reported, help safeguard the integrity of the
-          organization and protect stakeholders.
-        </p>
       </div>
     ),
   },

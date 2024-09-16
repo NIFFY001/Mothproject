@@ -46,7 +46,7 @@ const BalanceDisplay = () => {
       </div>
       <div className="flex items-center mt-[70px]">
         <span className="text-2xl font-bold text-white">
-          {balanceVisible ? "$100,000.00" : "***"}
+          {balanceVisible ? "$50,344.00" : "***"}
         </span>
         <button
           onClick={toggleBalance}
