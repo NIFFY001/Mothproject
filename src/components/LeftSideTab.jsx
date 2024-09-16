@@ -3,6 +3,12 @@ import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
 import mothlogo from "/src/assets/mothlogo.png";
 import { Link } from "react-router-dom";
+import notification from "/src/assets/notification.png";
+import colorednotification from "/src/assets/colorednotification.png";
+import atm from "/src/assets/atm.png";
+import mothbusiness from "/src/assets/mothbusiness.png";
+import google from "/src/assets/google.png";
+import apple from "/src/assets/apple.png";
 
 const LeftSideTab = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState(tabs[0].name);
@@ -57,7 +63,7 @@ const LeftSideTab = ({ tabs }) => {
           } md:block md:static absolute top-0 left-0 w-full md:w-auto bg-black z-10 h-[calc(100vh-60px)] md:h-auto`} // Adjusted height for mobile
         >
           {tabs.map((tab, index) => (
-            <div key={index} className="flex flex-col mb-5">
+            <div key={index} className="flex flex-col mb-5 py-2">
               <button
                 className={`py-4 px-6 text-left transition-colors ${
                   activeTab === tab.name
@@ -76,7 +82,7 @@ const LeftSideTab = ({ tabs }) => {
               className="py-4 px-6 text-left transition-colors text-gray-400"
               onClick={() => handleRightContentClick("thirdContent")}
             >
-              Third Content
+              Notification
             </button>
           </div>
         </div>
@@ -92,23 +98,138 @@ const LeftSideTab = ({ tabs }) => {
 
       {/* Right Section - Mobile View (Sliding Panel for third content) */}
       <div
-        className={`fixed md:hidden top-0 right-0 w-[70%] h-[calc(100vh-60px)] bg-gray-100 p-8 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed md:hidden top-0 right-0 w-[70%] h-[calc(100vh-60px)] bg-gray-100 p-2 transform transition-transform duration-300 ease-in-out overflow-y-scroll ${
           isRightSideOpen ? "translate-x-0" : "translate-x-full"
         }`}
         onMouseLeave={closeRightContent} // Auto-close when mouse leaves
       >
         {activeRightContent === "thirdContent" && (
           <>
-            <p>Additional Content for Third Content</p>
-            <p>More details here...</p>
+            <div className="px-1">
+              <div className="flex">
+                <img src={notification} className="ml-auto w-6 h-6"></img>
+              </div>
+
+              <div className=" mb-20">
+                <h1 className="text-[#6C6C70] text-sm mb-2">Today</h1>
+
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8">
+                    <img src={colorednotification} alt="notification" />
+                  </div>
+                  <div className="">
+                    <p className="text-sm">Amara Ayana requested $500</p>
+                    <p className="text-[#6C6C70] text-sm mb-3">
+                      July 06 at 8:00pm
+                    </p>
+                    <div className="border-b-2 w-full ]"></div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8">
+                    <img src={colorednotification} alt="notification" />
+                  </div>
+                  <div>
+                    <p className="text-sm">Moth Finance</p>
+
+                    <p className="text-[#6C6C70] text-sm mb-4">
+                      July 06 at 8:00pm
+                    </p>
+                    <div className="border-b-2 w-[200px] ]"></div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8">
+                    <img src={colorednotification} alt="notification" />
+                  </div>
+                  <div>
+                    <p className="text-sm">KYC Document Updated</p>
+                    <p className="text-[#6C6C70] text-sm mb-4">
+                      July 06 at 8:00pm
+                    </p>
+                    <div className="border-b-2 w-[200px] ]"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mb-5 px-2">
+                <img src={atm} alt="atm image" />
+              </div>
+
+              <div className="mb-5 px-2">
+                <img src={mothbusiness} alt="business image" />
+              </div>
+
+              <div className="flex justify-around px-2">
+                <img src={google} className="w-[100px]" alt="google" />
+                <img src={apple} className="w-[100px]" alt="apple" />
+              </div>
+            </div>
           </>
         )}
       </div>
 
       {/* Right Section for Desktop (md and above) */}
-      <div className="hidden md:block w-[25%] p-8 bg-[#F6F6F6] overflow-auto h-screen">
-        <p>Additional Content for Sidebar</p>
-        <p>More details here...</p>
+      <div className="hidden md:block w-[25%] bg-[#F6F6F6] overflow-auto h-screen">
+        <div className="px-4">
+          <div className="flex">
+            <img src={notification} className="ml-auto"></img>
+          </div>
+
+          <div className=" p-3 mb-20 bg-white rounded-xl ">
+            <h1 className="text-[#6C6C70]  text-sm mb-2">Today</h1>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="">
+                <img src={colorednotification}></img>
+              </div>
+              <div className="">
+                <p className="text-sm">Amara Ayana requested $500</p>
+                <p className="text-[#6C6C70] text-sm mb-4">July 06 at 8:00pm</p>
+                <div className="border-b-2 w-[270px] ]"></div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 mb-4">
+              <div className="">
+                <img src={colorednotification}></img>
+              </div>
+              <div className="">
+                <p className="text-sm">Moth Finance</p>
+                <p className="text-sm">
+                  Mastarcard funding is back online.You can..
+                </p>
+                <p className="text-[#6C6C70] text-sm mb-4">July 06 at 8:00pm</p>
+                <div className="border-b-2 w-full ]"></div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="">
+                <img src={colorednotification}></img>
+              </div>
+              <div className="">
+                <p className="text-sm">KYC Document Updated</p>
+
+                <p className="text-[#6C6C70] text-sm mb-4">July 06 at 8:00pm</p>
+                <div className="border-b-2 w-[260px] ]"></div>
+              </div>
+            </div>
+          </div>
+          <div className="mb-5 px-2">
+            <img src={atm}></img>
+          </div>
+
+          <div className="mb-5 px-2">
+            <img src={mothbusiness}></img>
+          </div>
+
+          <div className="flex justify-around px-2">
+            <img src={google} className="w-[150px]"></img>
+            <img src={apple} className="w-[150px]"></img>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -259,7 +259,9 @@ const tabs = [
     name: (
       <div className="flex items-center gap-2 ">
         <img src={logout} alt="Logout Logo" className="w-6 h-6" />
-        <span className="text-xl font-semibold">Logout</span>
+        <Link to="/">
+          <span className="text-xl font-semibold">Logout</span>
+        </Link>
       </div>
     ),
   },
